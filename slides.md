@@ -144,7 +144,8 @@ class: middle center inverse
 
 
 --
-<p class="text-center">動きのあるものと無いものをはっきり区別する必要がある</p>
+<br />
+<p class="text-center">※ 動きのあるものと無いもの<br />をはっきり区別する必要がある</p>
 
 ---
 class: middle center bg-light-yellow
@@ -201,7 +202,7 @@ class: middle center
 
 Let's try fresh!
 
-`deno run https://fresh.deno.dev`
+`deno run https://fresh.deno.dev my-app`
 
 ---
 class: middle center
