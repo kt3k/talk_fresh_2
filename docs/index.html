@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fresh の紹介</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <meta property="og:title" content="Fresh の紹介"/>
+    
+    <meta property="og:image" content="https://kt3k.github.io/talk_fresh_2/assets/og-image.png"/>
+    
+    <meta property="og:image:width" content="1200"/>
+    
+    
+    <meta property="og:image:height" content="600"/>
+    
+    
+    
+    <meta property="og:description" content="Deno のフロントエンドフレームワークである Fresh を紹介します" />
+    
+    
+    <meta name="twitter:creator" content="@kt3k"/>
+    
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://kt3k.github.io/talk_fresh_2/assets/og-image.png" />
+    
+    
+    <link rel="icon" href="./assets/fresh-logo.svg" type="image/svg+xml" />
+    
+    
+    <style type="text/css">
+      body {
+  font-family: 'klee', 'Tsukushi A Round Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', 'メイリオ', sans-serif;
+  font-weight: bold;
+}
+h1, h2, h3 {
+  font-weight: bold;
+}
+.remark-container {
+  background-color: #eaf9ff;
+}
+.remark-code,
+.remark-inline-code {
+  font-family: 'Menlo', 'Monaco', 'Courier new', monospace;
+  background-color: #eeeeee;
+  padding: 4px 16px;
+  border-radius: 8px;
+}
+
+code.remark-code {
+  display: block;
+  padding: 0.7em;
+  border-radius: 5px;
+  background-color: #272822;
+  color: #f3f3f3;
+  font-size: 23px;
+}
+
+.code-18 code.remark-code {
+  font-size: 18px;
+}
+
+.remark-slide-content {
+  color: #24292e;
+  font-size: 32px;
+  padding: 15px 60px;
+}
+
+.remark-slide-content.small {
+  font-size: 24px;
+}
+
+.remark-slide-content.bg-sky {
+  background-color: #9ae5ff;
+}
+
+.remark-slide-content.bg-light-yellow {
+  background-color: #ffffed;
+}
+
+.remark-slide-content.inverse {
+  color: #f3f3f3;
+  background-color: #272822;
+}
+
+.remark-slide-number a {
+  color: #24292e;
+  text-decoration: none;
+}
+
+.no-number .remark-slide-number {
+  display: none;
+}
+
+.inverse .remark-slide-number a {
+  color: #f3f3f3;
+}
+
+.inverse a:visited, .inverse a {
+  color: #3393f3;
+  text-decoration: none;
+}
+
+.remark-slide-content a:visited, .remark-slice-content a {
+  color: #3393f3;
+  text-decoration: none;
+}
+
+@page {
+  size: 908px 681px;
+  margin: 0;
+}
+
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.red {
+  color: #ee5544;
+}
+
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">class: middle center no-number
+
+<div style="display: flex; justify-content: space-evenly;">
+  <img src="./assets/fresh-treasure.png" style="" align="center" width="350" />
+
+  <div style="display: flex; flex-direction: column; justify-content: space-evenly;">
+    <span class="">
+      Fresh の紹介
+    </span>
+    <small>Yoshiya Hinosawa</small>
+  </div>
+</div>
+
+---
+
+# <div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh とは</span></div>
+
+- Deno 向けのフロントエンドフレームワーク
+- Next.js に似たファイルベースルーティングの仕組み
+- View は Preact (軽量 React) で記述
+- アイランドアーキテクチャを採用
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+<img src="./assets/fresh-dir.png">
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+3つの特別なディレクトリ
+
+- `routes/`
+- `static/`
+- `islands/`
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+`routes/`
+
+- ファイルがそのまま URL になる
+  - `routes/index.tsx` => `ドメイン名/`
+  - `routes/about.tsx` => `ドメイン名/about`
+
+
+--
+
+<br />
+<p class="text-center">Next.js, Nuxt, Remix などと同様</p>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+Route ファイルの例
+
+<div class="text-center">
+<img src="assets/fresh-route.png" width="600">
+</div>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+- View - Preact
+- Style - Tailwind (将来的にはSass等も対応予定)
+
+<div class="text-center">
+<img src="assets/fresh-route.png" width="500">
+</div>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+`static/`
+
+- ファイルがそのまま配信される
+  - `static/favicon.ico` => `/favicon.ico`
+  - `static/style.css` => `/style.css`
+  - `static/image/hero.png` => `/image/hero.png`
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh アプリのディレクトリ構造</span></div>
+
+`islands/`
+
+- ファイルがアイランドコンポーネントになる
+
+---
+class: middle center inverse
+
+アイランド(island)とは
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
+
+アイランド(島) = ページ内の特定の部分を表す言葉
+
+<div class="text-center">
+<img src="assets/islands-arch.png" width="500"/>
+</div>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
+
+特定のアイランドにだけ JS を適用する
+
+<div class="text-center">
+<img src="assets/islands-arch.png" width="500"/>
+</div>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
+
+インタラクションのない部分の JS は配信しない
+
+<div class="text-center">
+<img src="assets/islands-arch.png" width="500"/>
+</div>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
+
+- `islands/` 以下のファイルはアイランドコンポーネント
+- アイランドコンポーネントでは、View の動きを記述出来る
+  - ex. onClick, useState
+
+--
+<p class="text-center"></p>
+
+---
+
+<div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
+
+- 逆に、アイランドではない場合、動きは記述出来ない (記述しても無視される)
+  - アイランドではないコンポーネントはほぼテンプレートエンジンと同じ
+
+---
+class: middle center bg-light-yellow
+
+Fresh の良いところ
+
+
+---
+Fresh の良いところ1
+
+# パフォーマンスが良い
+
+- デフォルトで JS を吐かない
+- アイランドコンポーネントを書いた部分だけ JS が配信される
+  - JS の量が少なくなる => 速い
+- Core Web Vitals を計測すると実際良い数値が出やすい
+
+---
+Fresh の良いところ2
+
+# DX (開発体験) が良い
+
+- Fresh の依存関係は Deno が実行時に自動的に解決してくれるので `npm install` 的なものがない
+- Fresh はソースコードから直接 HTML や JS を生成するため「ビルド」のステップがない
+- TypeScript は Deno がやってくれるので設定無しで TypeScript を使える
+
+--
+
+<div class="text-center">🙌サイトの開発に集中できる🙌</div>
+
+---
+Fresh の実績
+
+- Deno 関連の Web サイトはほぼ大体 Fresh で書かれている
+  - ex. 公式ホームページ、マニュアル、
+- [Fresh Showcase](https://fresh.deno.dev/showcase) というページに実例がたくさん
+
+---
+class: middle center
+
+今なら Deno Deploy にデプロイすれば無料でインターネット上でサイトを公開出来ます。
+
+---
+
+## まとめ
+
+- Fresh は Deno 用のフロントエンドフレームワーク
+- アイランドアーキテクチャを採用しているため、描画のパフォーマンスが高い
+- Next.js に似ているが、より良い開発体験を提供
+- Deno 界隈では結構使用実績がある
+
+---
+class: middle center
+
+Let's try fresh!
+
+`deno run https://fresh.deno.dev`
+
+---
+class: middle center
+
+<img src="assets/fresh-logo.svg" width="150">
+
+Thank you!
+</textarea>
+    <div style="z-index: -1; position: fixed; display: flex; align-items: center; gap: 4px;">
+      <svg style="animation: spin 1s linear infinite; width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+        <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+      </svg>
+      <span>loading...</span>
+    </div>
+    <script src="remark.js"></script>
+    
+    <script>
+      window.slideshow = remark.create({"slideNumberFormat":"Fresh Intro - %current% / %total%"})
+    </script>
+    
+    <script>
+      
+      ;window.LiveReloadOptions = {
+        host: 'localhost',
+        port: '35729'
+      };
+    </script>
+  </body>
+</html>
