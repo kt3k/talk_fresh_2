@@ -132,7 +132,7 @@ class: middle center inverse
 <div style="display: flex; align-items: center; gap: 12px;"><img src="assets/fresh-logo.svg" width="80"><span>Fresh のアイランドアーキテクチャ</span></div>
 
 - `islands/` 以下のファイルはアイランドコンポーネント
-- アイランドコンポーネントでは、View の動きを記述出来る
+- アイランドコンポーネントでは、View の「動き」を記述出来る
   - ex. onClick, useState
 
 ---
@@ -144,7 +144,7 @@ class: middle center inverse
 
 
 --
-<p class="text-center"></p>
+<p class="text-center">動きのあるものと無いものをはっきり区別する必要がある</p>
 
 ---
 class: middle center bg-light-yellow
