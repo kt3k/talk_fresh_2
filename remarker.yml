@@ -3,8 +3,8 @@ port: 30000
 title: Fresh の紹介
 description: Deno のフロントエンドフレームワークである Fresh を紹介します
 ogImage: "https://kt3k.github.io/talk_fresh_2/assets/og-image.png"
-ogImageWidth: 1200
-ogImageHeight: 600
+ogImageWidth: 910
+ogImageHeight: 498
 twitter: kt3k
 favicon: ./assets/fresh-logo.svg
 remarkConfig:
